@@ -13,7 +13,14 @@ fn slow_task() -> i32 {
     1
 }
 
+#[basic_information]
+fn long_task() -> i32 {
+    std::thread::sleep(std::time::Duration::from_secs(5));
+    2
+}
+
 fn main() {
     hello(String::from("Tom"));
     slow_task();
+    long_task();
 }
